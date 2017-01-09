@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let model = Person(firstName: "David", lastName: "Blaine")
+        let model = Person(firstName: "Adrian", lastName: "Ortuzar")
         let viewModel = ViewModel(person: model)
         let view = ViewController()
         view.viewModel = viewModel

@@ -63,9 +63,9 @@
 				49FA5DE71E23DAFE00CC2790 /* AppDelegate.swift */,
 				49FA5DE91E23DAFE00CC2790 /* ViewController.swift */,
 				49FA5E011E23E09D00CC2790 /* ViewController.xib */,
-				49FA5DF91E23DB2D00CC2790 /* PersonModel.swift */,
-				49FA5DFB1E23DBC500CC2790 /* ViewModelProtocol.swift */,
 				49FA5DFD1E23DC4700CC2790 /* ViewModel.swift */,
+				49FA5DFB1E23DBC500CC2790 /* ViewModelProtocol.swift */,
+				49FA5DF91E23DB2D00CC2790 /* PersonModel.swift */,
 				49FA5DEE1E23DAFE00CC2790 /* Assets.xcassets */,
 				49FA5DF01E23DAFE00CC2790 /* LaunchScreen.storyboard */,
 				49FA5DF31E23DAFE00CC2790 /* Info.plist */,
@@ -304,6 +304,7 @@
 				49FA5DF81E23DAFE00CC2790 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

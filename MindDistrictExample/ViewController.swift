@@ -18,21 +18,43 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var surnameField: UITextField!
     
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var fullNameLabel: UILabel!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.button.addTarget(self.viewModel, action:#selector(ViewModel.showFullName), for: .touchUpInside)
+        self.nameField.text = self.viewModel.person!.firstName
+        self.surnameField.text = self.viewModel.person!.lastName
+        
+        self.viewModel.showFullName()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension ViewController : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let textFieldText: NSString = (textField.text ?? "") as NSString
+        let txtAfterUpdate = textFieldText.replacingCharacters(in: range, with: string)
+        
+        if textField == nameField {
+            self.viewModel.person?.firstName = txtAfterUpdate
+        }
+        else {
+            self.viewModel.person?.lastName = txtAfterUpdate
+        }
+        
+        
+        return true
     }
 }
 

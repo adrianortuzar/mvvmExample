@@ -10,6 +10,8 @@ import Foundation
 
 protocol ViewModelProtocol: class {
     
+    var person: Person? { get set }
+    
     var fullName: String? { get }
     
     var fullNameDidChange: ((ViewModelProtocol) -> ())? { get set } // function to call when fullName did change

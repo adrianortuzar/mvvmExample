@@ -10,6 +10,6 @@ import Foundation
 
 
 struct Person { // Model
-    let firstName: String
-    let lastName: String
+    var firstName: String
+    var lastName: String
 }

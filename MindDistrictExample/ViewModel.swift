@@ -10,7 +10,11 @@ import Foundation
 
 class ViewModel : ViewModelProtocol {
     
-    let person: Person
+    var person: Person? {
+        didSet {
+            showFullName()
+        }
+    }
     
     var fullName: String? {
         didSet {
@@ -24,6 +28,6 @@ class ViewModel : ViewModelProtocol {
     }
     
     @objc func showFullName() {
-        self.fullName = self.person.firstName + " " + self.person.lastName
+        self.fullName = self.person!.firstName + " " + self.person!.lastName
     }
 }
