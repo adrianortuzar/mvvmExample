@@ -8,26 +8,26 @@
 
 import Foundation
 
-class ViewModel : ViewModelProtocol {
+class ViewModel  {
     
     var person: Person? {
-        didSet {
-            showFullName()
-        }
-    }
-    
-    var fullName: String? {
         didSet {
             self.fullNameDidChange?(self)
         }
     }
-    var fullNameDidChange: ((ViewModelProtocol) -> ())?
+    
+    var fullName: String? {
+        set {
+
+        }
+        get {
+            return self.person!.firstName + " " + self.person!.lastName
+        }
+    }
+    
+    var fullNameDidChange: ((ViewModel) -> ())?
     
     required init(person: Person) {
         self.person = person
-    }
-    
-    @objc func showFullName() {
-        self.fullName = self.person!.firstName + " " + self.person!.lastName
     }
 }

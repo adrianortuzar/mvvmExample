@@ -10,19 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var viewModel: ViewModelProtocol! {
-        didSet {
-            self.viewModel.fullNameDidChange = { [unowned self] viewModel in
-                self.fullNameLabel.text = viewModel.fullName
-            }
-        }
-    }
+    var viewModel: ViewModel
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var surnameField: UITextField!
     
     @IBOutlet weak var fullNameLabel: UILabel!
-
+    
+    init(viewModel: ViewModel){
+        
+        self.viewModel = viewModel
+        
+        super.init(nibName:"ViewController", bundle: nil)
+        
+        self.viewModel.fullNameDidChange = { [unowned self] viewModel in
+            self.fullNameLabel.text = viewModel.fullName
+        }
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +40,7 @@ class ViewController: UIViewController {
         self.nameField.text = self.viewModel.person!.firstName
         self.surnameField.text = self.viewModel.person!.lastName
         
-        self.viewModel.showFullName()
+        self.viewModel.fullNameDidChange!(self.viewModel)
     }
 
     override func didReceiveMemoryWarning() {

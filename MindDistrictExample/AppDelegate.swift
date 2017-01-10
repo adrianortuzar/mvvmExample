@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let model = Person(firstName: "Adrian", lastName: "Ortuzar")
         let viewModel = ViewModel(person: model)
-        let view = ViewController()
-        view.viewModel = viewModel
+        let view = ViewController(viewModel: viewModel)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = view
